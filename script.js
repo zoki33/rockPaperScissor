@@ -12,18 +12,31 @@ function getComputerChoice() {
   }
 
   function playRound(computerSelection, userSelection) {
+
     if (computerSelection === userSelection){
+ 
       console.log("It's a tie!");
+      return "tie";
+      
+      
     }
     else if ((userSelection == "Rock" && computerSelection == "Scissors") 
     || (userSelection == "Paper" && computerSelection == "Rock") 
     ||(userSelection == "Scissors" && computerSelection == "Paper")){
       
+     
       console.log(`You win! ${userSelection} beats ${computerSelection}`);
+      return "userWins";
+     
 
     }
     else {
+      
       console.log(`You lost! ${computerSelection} beats ${userSelection}`);
+     
+      
+
+
     }
     
   }
@@ -42,6 +55,32 @@ function getComputerChoice() {
     }
   }
 
+  function game(){
+    let userScore;
+    let compScore;
+    let roundNumber = 0;
 
+    while (roundNumber < 5){
+      playRound(getComputerChoice(), getUserChoice());
+      if(playRound(getComputerChoice(), getUserChoice()) === "tie"){
+        userScore += 1;
+        compScore += 1;
+        roundNumber += 1;
+      }
+      else if(playRound(getComputerChoice(), getUserChoice()) === "userWins"){
+        userScore += 1;
+        roundNumber += 1;
+      }
+      else{
+        compScore += 1;
+        roundNumber += 1;
+      }
+    
+    
 
-  playRound(getComputerChoice(), getUserChoice())
+  }
+
+  console.log(`Final score is: ${userScore}:${compScore}`);
+}
+
+  game();
