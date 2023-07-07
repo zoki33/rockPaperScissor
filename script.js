@@ -56,8 +56,8 @@ function getComputerChoice() {
   }
 
   function game(){
-    let userScore;
-    let compScore;
+    let userScore = 0;
+    let compScore = 0;
     let roundNumber = 0;
 
     while (roundNumber < 5){
@@ -81,6 +81,15 @@ function getComputerChoice() {
   }
 
   console.log(`Final score is: ${userScore}:${compScore}`);
+  if (userScore > compScore){
+    console.log("Congratulations. You won!");
+  }
+  else if (userScore < compScore){
+    console.log("You lost. Better luck next time!");
+  }
+  else{
+    console.log("The game is tied. Try again.")
+  }
 }
 
   game();
