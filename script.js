@@ -30,7 +30,8 @@ function getComputerChoice() {
 
   function getUserChoice() {
     while (true) { 
-      userSelection = prompt("Enter your choice: ");
+      let userSelection = prompt("Enter your choice: ");
+      userSelection = userSelection.charAt(0).toUpperCase() + userSelection.slice(1).toLowerCase();
       if (userSelection === "Rock" || userSelection === "Scissors" || userSelection === "Paper") {
         return userSelection;
         break;
