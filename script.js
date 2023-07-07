@@ -61,13 +61,13 @@ function getComputerChoice() {
     let roundNumber = 0;
 
     while (roundNumber < 5){
-      playRound(getComputerChoice(), getUserChoice());
-      if(playRound(getComputerChoice(), getUserChoice()) === "tie"){
+      let result = playRound(getComputerChoice(), getUserChoice());
+      if(result === "tie"){
         userScore += 1;
         compScore += 1;
         roundNumber += 1;
       }
-      else if(playRound(getComputerChoice(), getUserChoice()) === "userWins"){
+      else if(result === "userWins"){
         userScore += 1;
         roundNumber += 1;
       }
